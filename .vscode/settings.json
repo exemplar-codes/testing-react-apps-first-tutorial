@@ -3,5 +3,6 @@
         "activityBar.background": "#61011A",
         "titleBar.activeBackground": "#880224",
         "titleBar.activeForeground": "#FFFBFC"
-    }
+    },
+    "workbench.colorTheme": "One Dark Pro"
 }
