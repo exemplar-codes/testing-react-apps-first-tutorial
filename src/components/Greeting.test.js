@@ -5,6 +5,7 @@ import Greeting from "./Greeting";
 describe("Greeting component", () => {
   test("renders Hello World! as text", () => {
     render(<Greeting />);
+
     const helloWorldText = screen.queryByText("Hello World!", { exact: true });
     expect(helloWorldText).toBeInTheDocument();
   });
