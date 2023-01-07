@@ -19,6 +19,13 @@ describe("Greeting component", () => {
     expect(goodToSeeYouText).toBeInTheDocument();
   });
 
+  test("does not render 'Changed!' text when button has NOT been clicked", () => {
+    render(<Greeting />);
+
+    const changedText = screen.queryByText("Changed!", { exact: true });
+    expect(changedText).not.toBeInTheDocument();
+  });
+
   test("renders Changed! text when button has been clicked once", () => {
     render(<Greeting />);
 
@@ -28,6 +35,19 @@ describe("Greeting component", () => {
 
     const changedText = screen.queryByText("Changed!", { exact: true });
     expect(changedText).toBeInTheDocument();
+  });
+
+  test("does not render 'Good to see you' text when button has been clicked once", () => {
+    render(<Greeting />);
+
+    // click the button
+    const changeTextButton = screen.queryByText("Change Text!"); // screen.getByRole('button')
+    userEvent.click(changeTextButton);
+
+    const goodToSeeYouText = screen.queryByText("good to see you", {
+      exact: false,
+    });
+    expect(goodToSeeYouText).not.toBeInTheDocument();
   });
 
   test("renders Changed! text when button has been clicked once - DIRECTLY", () => {
