@@ -1,4 +1,5 @@
 import "./App.css";
+import Async from "./components/Async";
 import Greeting from "./components/Greeting";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Async />
         <Greeting />
         <a
           className="App-link"
