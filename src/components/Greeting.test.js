@@ -28,4 +28,15 @@ describe("Greeting component", () => {
     const changedText = screen.queryByText("Changed!", { exact: true });
     expect(changedText).toBeInTheDocument();
   });
+
+  test("renders Changed! text when button has been clicked once - DIRECTLY", () => {
+    render(<Greeting />);
+
+    // click the button
+    const changeTextButton = screen.queryByText("Change Text!");
+    changeTextButton.click(); // works fine, not discussed in the course.
+
+    const changedText = screen.queryByText("Changed!", { exact: true });
+    expect(changedText).toBeInTheDocument();
+  });
 });
