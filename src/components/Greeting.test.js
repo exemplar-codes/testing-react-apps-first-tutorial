@@ -23,14 +23,14 @@ describe("Greeting component", () => {
     render(<Greeting />);
 
     const changedText = screen.queryByText("Changed!", { exact: true });
-    expect(changedText).not.toBeInTheDocument();
+    expect(changedText).not.toBeInTheDocument(); // or expect(changedText).toBeNull()
   });
 
   test("renders Changed! text when button has been clicked once", () => {
     render(<Greeting />);
 
     // click the button
-    const changeTextButton = screen.getByText("Change Text!"); // screen.getByRole('button')
+    const changeTextButton = screen.getByText("Change Text!"); // or screen.getByRole('button')
     userEvent.click(changeTextButton);
 
     const changedText = screen.getByText("Changed!", { exact: true });
@@ -41,7 +41,7 @@ describe("Greeting component", () => {
     render(<Greeting />);
 
     // click the button
-    const changeTextButton = screen.getByText("Change Text!"); // screen.getByRole('button')
+    const changeTextButton = screen.getByText("Change Text!"); // or screen.getByRole('button')
     userEvent.click(changeTextButton);
 
     const goodToSeeYouText = screen.queryByText("good to see you", {
